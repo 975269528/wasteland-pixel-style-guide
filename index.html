@@ -1,13 +1,19 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>废土重生 像素伪3D制作参考</title><link rel="icon" href="data:,"><link rel="stylesheet" href="reader.css"></head>
+<title>废土重生 像素伪3D制作参考</title><link rel="icon" href="data:,"><link rel="stylesheet" href="reader.css?v=f8fb4bd54386"></head>
 <body><aside><p class="brand">废土重生</p><p class="subtitle">像素伪3D制作参考</p>
-<nav aria-label="文档目录"><a href="#overview">开始阅读</a>
+<nav class="desktop-nav" aria-label="文档目录"><a href="#overview">开始阅读</a>
 <a href="#style">风格规范</a>
 <a href="#implementation">实现流程</a>
 <a href="#problems">问题与解决</a>
-<a href="#reuse">复用检查</a></nav><p class="note">2026 年 10 月 9 日<br>在线文档 · 实际效果预览</p></aside>
+<a href="#reuse">复用检查</a></nav>
+<details class="mobile-menu"><summary>文档目录</summary><nav aria-label="手机文档目录"><a href="#overview">开始阅读</a>
+<a href="#style">风格规范</a>
+<a href="#implementation">实现流程</a>
+<a href="#problems">问题与解决</a>
+<a href="#reuse">复用检查</a></nav></details>
+<p class="note">2026 年 10 月 9 日<br>在线文档 · 实际效果预览</p></aside>
 <main><section id="overview"><h1>废土重生像素伪3D制作参考</h1>
 <p>这套参考记录《废土重生》当前小样的场景、人物、坐骑、装备和动画制作方法，以及已经遇到的问题与修复方式。适合希望制作同类斜俯视横屏游戏的美术、动画和程序人员。</p>
 <p>可直接在线阅读本文与效果预览，也可<a href="downloads/style-reference.zip" download>下载离线分享包（ZIP，约 7.35 MiB）</a>。解压后双击 <code>index.html</code> 即可离线阅读和播放 GIF，无须安装 Maker、Blender 或文档插件。发送给别人时请发送整个压缩包，保留 <code>media</code> 文件夹。四篇 Markdown 是可编辑的文字原稿。</p>
@@ -45,7 +51,7 @@
 <p><img src="media/scene.png" alt="当前场景与主次关系"></p>
 <p>图中沙袋、准星和装备条是功能验证道具；正式关卡可替换，但应保留人物与环境的明度层次。</p>
 <h2>2. 镜头、像素与光照</h2>
-<div class="table-scroll"><table>
+<div class="table-scroll" role="region" aria-label="可横向滚动的表格" tabindex="0"><p class="table-hint">表格较宽时，可左右滑动查看。</p><table>
 <thead>
 <tr>
 <th>项目</th>
@@ -108,7 +114,7 @@
 <p>岩壁要读成连续高墙：几组高低、宽度、进退和斜面不同的大块岩体，用深竖裂连接；顶部只有少量苔草，底部碎块与地面衔接。避免等高等宽的竖栏，也避免苔藓亮顶盖住岩面，使石墙读成草台。</p>
 <p>当前岩壁是固定后景叠层，实体底缘为逻辑y202，角色最小活动脚点y220。它不是可以穿过、绕到背面或自动参与人物遮挡的前景实体。</p>
 <p>小碎石和草簇采用稀疏点簇补充空间层次。石块有独立小阴影，草不画同样大小的黑椭圆。主体PNG不烘焙地面投影，避免双影。</p>
-<div class="table-scroll"><table>
+<div class="table-scroll" role="region" aria-label="可横向滚动的表格" tabindex="0"><p class="table-hint">表格较宽时，可左右滑动查看。</p><table>
 <thead>
 <tr>
 <th>部位</th>
@@ -149,7 +155,7 @@
 <p>三种近战装备应有不同剪影：砍刀有暗直背、亮凸长刃和弯尖；短斧有短柄、斧板和明确单刃外缘；管杆长矛有长杆与独立尖端。武器从真实手腕/握点生成，不能在屏幕上悬浮旋转。</p>
 <p>砍刀与斧的板面属于真实挥击平面，切刃领先前下挥击。数学向量正确仍不足：在实际GPU尺寸下，刀背不能比磨刃更像锋刃；必须看前摇、接触和随挥连续帧，确认真正长刃入目标，而不只看刀尖或任意头部碰袋。</p>
 <h2>5. 动作规范</h2>
-<div class="table-scroll"><table>
+<div class="table-scroll" role="region" aria-label="可横向滚动的表格" tabindex="0"><p class="table-hint">表格较宽时，可左右滑动查看。</p><table>
 <thead>
 <tr>
 <th>动作</th>
@@ -241,7 +247,7 @@
 <p>小样直接使用已有官方 UrhoX Runtime，未绑定 Maker 项目，无平台身份和远端构建。
 已验证的是 Windows 本地交互及 GPU 呈现；触控、手机显存、性能、完整战斗和联网均不在验证范围。</p>
 <h2>2. 资源与代码分工</h2>
-<div class="table-scroll"><table>
+<div class="table-scroll" role="region" aria-label="可横向滚动的表格" tabindex="0"><p class="table-hint">表格较宽时，可左右滑动查看。</p><table>
 <thead>
 <tr>
 <th>工作</th>
@@ -309,7 +315,7 @@
 <p>运行时逻辑场地为 <code>1280×720</code>，世界缓冲为 <code>640×360</code>。逻辑纵向地面压缩系数为 <code>0.66</code>。
 方向编号从 0 开始：下、右下、右、右上、上、左上、左、左下。
 图集行列从 0 开始；Lua 元数据用 <code>direction+1</code>、<code>frame+1</code> 访问。</p>
-<div class="table-scroll"><table>
+<div class="table-scroll" role="region" aria-label="可横向滚动的表格" tabindex="0"><p class="table-hint">表格较宽时，可左右滑动查看。</p><table>
 <thead>
 <tr>
 <th>资产</th>
@@ -391,7 +397,7 @@
 战斗判据覆盖 <code>attackRequested</code>、<code>combatFacing</code>、attack 对象及尚未结束的近战冷却。
 普通走路使用较低抬脚、动态髋高和较直的支撑膝；跑步使用更大摆幅和抬脚。
 普通触地相位为 <code>(-1,-1/3,1/3,1,1/3,-1/3)</code>，支撑回扫三段等距，避免匀速角色配不匀脚步。</p>
-<div class="table-scroll"><table>
+<div class="table-scroll" role="region" aria-label="可横向滚动的表格" tabindex="0"><p class="table-hint">表格较宽时，可左右滑动查看。</p><table>
 <thead>
 <tr>
 <th>当前播放参数</th>
@@ -637,7 +643,7 @@ Windows输入检查使用适配数据，并未注入真实OS鼠标键盘；触�
 </ul>
 <h2>2. 图集与坐标合同</h2>
 <p>方向索引统一为：<code>0 S、1 SE、2 E、3 NE、4 N、5 NW、6 W、7 SW</code>。列和方向为零起始；Lua数组读取时加1。母体地面为X/Y、高度为Z，运行时位置是逻辑屏幕脚点，两者不能直接互换。</p>
-<div class="table-scroll"><table>
+<div class="table-scroll" role="region" aria-label="可横向滚动的表格" tabindex="0"><p class="table-hint">表格较宽时，可左右滑动查看。</p><table>
 <thead>
 <tr>
 <th>资源组</th>
@@ -710,7 +716,7 @@ Windows输入检查使用适配数据，并未注入真实OS鼠标键盘；触�
 </ul>
 <p>完整项目定位：<code>research/pseudo3d-prototype/assets/</code> 下的 <code>combat-manifest.json</code>、<code>locomotion-manifest.json</code>、<code>mounted-melee-manifest.json</code>、<code>mounted-gun16-manifest.json</code>。</p>
 <h2>3. 环境与排序合同</h2>
-<div class="table-scroll"><table>
+<div class="table-scroll" role="region" aria-label="可横向滚动的表格" tabindex="0"><p class="table-hint">表格较宽时，可左右滑动查看。</p><table>
 <thead>
 <tr>
 <th>环境资源</th>
@@ -793,7 +799,7 @@ Windows输入检查使用适配数据，并未注入真实OS鼠标键盘；触�
 </ul>
 <h2>8. 制作与重建交接</h2>
 <p>完整项目的源入口位于 <code>research/pseudo3d-prototype/assets/source/</code>：</p>
-<div class="table-scroll"><table>
+<div class="table-scroll" role="region" aria-label="可横向滚动的表格" tabindex="0"><p class="table-hint">表格较宽时，可左右滑动查看。</p><table>
 <thead>
 <tr>
 <th>变更范围</th>
