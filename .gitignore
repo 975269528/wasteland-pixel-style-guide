@@ -1,0 +1,21 @@
+.env
+.env.local
+.env.*
+!.env.example
+node_modules/
+__pycache__/
+vendor/
+dist/
+.DS_Store
+
+# Local research evidence and runtime logs are kept outside version history.
+/参考视频.mp4
+/research/reference-frames/
+/logs/
+**/logs/
+**/screenshots/
+.playwright-cli/
+/output/playwright/
+*.log
+*.blend1
+*.blend2

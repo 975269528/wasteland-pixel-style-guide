@@ -1,0 +1,36 @@
+:root { color-scheme: light; --ink: #293026; --paper: #faf8ef; --line: #d6d8c8; --accent: #4c5d36; }
+* { box-sizing: border-box; }
+html { scroll-padding-top: 24px; }
+body { margin: 0; color: var(--ink); background: var(--paper); font: 16px/1.85 system-ui, "Microsoft YaHei", sans-serif; }
+aside { position: fixed; inset: 0 auto 0 0; width: 240px; padding: 42px 26px; background: #293329; color: #f6efd6; }
+.brand { font-size: 25px; font-weight: 750; margin: 0; letter-spacing: 2px; }
+.subtitle { margin: 6px 0 32px; font-size: 14px; color: #c6cbb8; }
+nav { display: grid; gap: 10px; }
+nav a { color: #f6efd6; padding: 7px 10px; border-left: 2px solid #758366; text-decoration: none; }
+nav a:hover, nav a:focus-visible { background: #43503c; outline: 2px solid #bdc59d; }
+.note { margin-top: 36px; font-size: 12px; color: #c6cbb8; }
+main { max-width: 1330px; margin-left: 240px; padding: 40px 60px 60px; }
+section { padding-bottom: 50px; margin-bottom: 40px; border-bottom: 1px solid var(--line); }
+h1 { font-size: 30px; line-height: 1.5; margin: 8px 0 24px; }
+h2 { font-size: 23px; margin: 34px 0 16px; }
+h3 { font-size: 19px; margin: 26px 0 12px; }
+p { margin: 12px 0; }
+a { color: var(--accent); text-underline-offset: 3px; overflow-wrap: anywhere; }
+img { display: block; max-width: 100%; height: auto; border: 1px solid var(--line); image-rendering: pixelated; margin: 20px 0; }
+pre { overflow-x: auto; padding: 18px; background: #eeeede; border: 1px solid var(--line); line-height: 1.6; }
+code { font: .9em/1.6 Consolas, monospace; overflow-wrap: anywhere; }
+:not(pre) > code { padding: 2px 4px; background: #eeeedf; }
+ul, ol { padding-left: 26px; }
+li { margin: 7px 0; }
+.table-scroll { overflow-x: auto; margin: 20px 0; }
+table { border-collapse: collapse; width: 100%; min-width: 550px; font-size: 14px; }
+th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+th { background: #e9eddc; }
+blockquote { border-left: 4px solid #879266; padding: 2px 18px; margin-left: 0; background: #f0f1e3; }
+footer { font-size: 13px; color: #59604f; }
+@media (max-width: 900px) {
+  aside { position: static; width: 100%; padding: 22px; }
+  .subtitle { margin-bottom: 16px; } nav { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+  .note { margin-top: 18px; } main { margin-left: 0; padding: 24px 20px; } h1 { font-size: 25px; }
+}
+@media print { aside { display: none; } main { margin: 0; padding: 0; } section { page-break-before: always; } section:first-child { page-break-before: auto; } }
